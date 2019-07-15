@@ -36,11 +36,10 @@ export default {
   height: 100%;
   background-image: url('../assets/img/bg_fulian3.jpg');
   background-size: cover;
-  background-position: center;
   position: relative;
   &-con{
     position: absolute;
-    right: 160px;
+    left: ~"calc(50% - 150px)";
     top: 50%;
     transform: translateY(-60%);
     width: 300px;
