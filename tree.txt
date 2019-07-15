@@ -1,15 +1,15 @@
 D:\Vs_code\zh_admin
 ├─.browserslistrc
-├─.editorconfig
-├─.eslintrc.js
+├─.editorconfig ---- vscode配置文件
+├─.eslintrc.js ---- eslint规则
 ├─.gitignore
-├─babel.config.js
+├─babel.config.js  --- babel配置文件
 ├─package.json
-├─postcss.config.js
+├─postcss.config.js ----- css自动补充兼容性代码配置
 ├─README.md
-├─tree.txt
+├─tree.txt  ---- 目录文件
 ├─yarn.lock
-├─src
+├─src -------- 项目开发文件
 |  ├─App.vue
 |  ├─main.js
 |  ├─router.js
@@ -21,6 +21,6 @@ D:\Vs_code\zh_admin
 |  |     └HelloWorld.vue
 |  ├─assets
 |  |   └logo.png
-├─public
+├─public               -------------静态文件
 |   ├─favicon.ico
 |   └index.html
