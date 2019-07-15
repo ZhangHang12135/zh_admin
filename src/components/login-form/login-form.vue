@@ -1,20 +1,21 @@
 <template>
-  <Form ref="loginForm" :model="form" :rules="rules">
+  <Form ref="loginForm" :model="form" :rules="rules" @keydown.enter.native="handleSubmit">
     <FormItem prop="userName">
-      <i-input type="text" v-model="form.userName" placeholder="请输入用户名">
-
+      <i-input v-model="form.userName" placeholder="请输入用户名">
         <span slot="prepend">
-          <icon-svg icon="nanhaizi" :size="14"></icon-svg>
+          <Icon :size="16" type="ios-person"></Icon>
         </span>
       </i-input>
     </FormItem>
     <FormItem prop="password">
       <i-input type="password" v-model="form.password" placeholder="请输入密码">
-          <Icon :size="14" type="md-lock" slot="prepend"></Icon>
+        <span slot="prepend">
+          <Icon :size="14" type="md-lock"></Icon>
+        </span>
       </i-input>
     </FormItem>
     <FormItem>
-
+      <Button @click="handleSubmit" type="primary">登录</Button>
     </FormItem>
   </Form>
 </template>
@@ -29,11 +30,48 @@ export default {
       }
     }
   },
+  props: {
+    userNameRules: {
+      type: Array,
+      default: () => {
+        return [
+          {
+            required: true, message: '账号不能为空', trigger: 'blur'
+          }
+        ]
+      }
+    },
+    passwordRules: {
+      type: Array,
+      default: () => {
+        return [
+          {
+            required: true, message: '密码不能为空', trigger: 'blur'
+          }
+        ]
+      }
+    }
+  },
   computed: {
     rules () {
       return {
-
+        userName: this.userNameRules,
+        password: this.passwordRules
       }
+    }
+  },
+  methods: {
+    handleSubmit () {
+      // 这里的valid是个Boolean，满足规则就是true
+      this.$refs.loginForm.validate((valid) => {
+        console.log(valid)
+        if (valid) {
+          this.$emit('on-success-valid', {
+            userName: this.form.userName,
+            password: this.form.password
+          })
+        }
+      })
     }
   }
 }
