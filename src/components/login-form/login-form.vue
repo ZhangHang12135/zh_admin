@@ -1,5 +1,5 @@
 <template>
-  <Form ref="loginForm" :model="form" :rules="rules" @keydown.enter.native="handleSubmit">
+  <Form ref="loginForm" :model="form" :rules="rules" @keydown.enter.native="handleSubmit" style="background: transparent;">
     <FormItem prop="userName">
       <i-input v-model="form.userName" placeholder="请输入用户名">
         <span slot="prepend">
@@ -15,7 +15,7 @@
       </i-input>
     </FormItem>
     <FormItem>
-      <Button @click="handleSubmit" type="primary">登录</Button>
+      <Button @click="handleSubmit" type="error" long>登录</Button>
     </FormItem>
   </Form>
 </template>
