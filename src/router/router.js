@@ -1,23 +1,26 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
-
-Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
+// 路由
+export const routerMap = [
+  {
+    path: '/',
+    name: 'layout',
+    meta: {
+      title: '首页'
     },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
-  ]
-})
+    component: () => import('@/views/layout.vue')
+  }
+]
+// 通用路由
+export const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    meta: {
+      title: '登录'
+    },
+    component: () => import('@/views/login.vue')
+  },
+  {
+    path: '*',
+    component: () => import('@/views/error-page/error_404.vue')
+  }
+]
