@@ -1,9 +1,8 @@
 import axios from './index'
 
 export const login = ({ userName, password }) => {
-  console.log('this a api login')
   return axios.request({
-    url: '/index/login',
+    url: '/login',
     data: {
       userName,
       password
@@ -14,14 +13,14 @@ export const login = ({ userName, password }) => {
 
 export const authorization = () => {
   return axios.request({
-    url: 'authorization',
+    url: '/authorization',
     method: 'get'
   })
 }
 
 export const getUserInfo = (token) => {
   return axios.request({
-    url: 'getUserInfo',
+    url: '/getUserInfo',
     params: {
       token
     },

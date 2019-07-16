@@ -32,11 +32,9 @@ export default {
     handleSubmit ({userName, password}) {
       this.login({userName, password}).then(res => {
         // 这里的actions没有传值，所以res为空
-        console.log('login-success')
         this.getUserInfo().then(res => {
-          consolr.log('UserInfo---',res)
           this.$router.push({
-          name: 'layout'
+            name: 'layout'
         })
         })
       })

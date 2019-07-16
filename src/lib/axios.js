@@ -39,7 +39,6 @@ class HttpRequest {
       this.queue[url] = true
       // 添加验证头
       config.headers['Authorizeation'] = getToken()
-      console.log(config)
       return config
     }, error => {
       return Promise.reject(error)
