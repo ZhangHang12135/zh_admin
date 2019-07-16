@@ -15,6 +15,7 @@ export const authorization = () => {
       rules: {
         page: {
           home: true,
+          layout: true,
           table_page: true,
           icon_page: true
         }
