@@ -4,6 +4,7 @@ import state from './state'
 import mutations from './mutations'
 import actions from './actions'
 import user from './module/user'
+import router from './module/router'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -12,6 +13,7 @@ export default new Vuex.Store({
   actions,
   mutations,
   modules: {
-    user
+    user,
+    router
   }
 })
