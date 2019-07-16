@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { baseURL } from '@/config'
 import { getToken } from './util'
-import { Spin } from 'iview'
+// import { Spin } from 'iview'
 
 class HttpRequest {
   constructor (baseUrl = baseURL) {
@@ -20,7 +20,7 @@ class HttpRequest {
   distroy (url) {
     delete this.queue[url]
     if (!Object.keys(this.queue).length) {
-      Spin.hiden()
+      // Spin.hiden()
     }
   }
   /**
@@ -33,16 +33,18 @@ class HttpRequest {
     instance.interceptors.request.use(config => {
       // 添加全局的loading...
       if (!Object.keys(this.queue).length) {
-        Spin.show()
+        // Spin.show()
       }
       // 请求队列+1
       this.queue[url] = true
       // 添加验证头
       config.headers['Authorizeation'] = getToken()
+      console.log(config)
       return config
     }, error => {
       return Promise.reject(error)
     })
+    // 返回拦截器
     instance.interceptors.response.use(res => {
       this.distroy(url)
       // 直接拿到请求的数据

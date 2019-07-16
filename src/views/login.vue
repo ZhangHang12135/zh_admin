@@ -12,6 +12,7 @@
 </template>
 <script>
 import LoginForm from '_c/login-form'
+import { mapActions } from 'vuex'
 export default {
   name: 'login_page',
   data() {
@@ -24,8 +25,21 @@ export default {
     LoginForm
   },
   methods: {
-    handleSubmit () {
-      console.log('want to login!')
+    ...mapActions([
+      'login',
+      'getUserInfo'
+    ]),
+    handleSubmit ({userName, password}) {
+      this.login({userName, password}).then(res => {
+        // 这里的actions没有传值，所以res为空
+        console.log('login-success')
+        this.getUserInfo().then(res => {
+          consolr.log('UserInfo---',res)
+          this.$router.push({
+          name: 'layout'
+        })
+        })
+      })
     }
   }
 }

@@ -64,7 +64,6 @@ export default {
     handleSubmit () {
       // 这里的valid是个Boolean，满足规则就是true
       this.$refs.loginForm.validate((valid) => {
-        console.log(valid)
         if (valid) {
           this.$emit('on-success-valid', {
             userName: this.form.userName,
