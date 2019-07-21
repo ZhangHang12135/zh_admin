@@ -27,3 +27,7 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Bug
+- [x] 动态权限加载，f5刷新主页，跳到404
+  - 重复添加了\*路由，在beforeEach之前，页面就跳转到了404,过滤掉\*路由即可

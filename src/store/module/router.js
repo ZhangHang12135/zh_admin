@@ -7,6 +7,9 @@ import { routes, routerMap } from '@/router/router'
  */
 const getAccesRouterList = (routes, rules) => {
   return routes.filter(item => {
+    // 这里过滤掉没有name字段的，就把*路由过滤掉了,
+    // 这样在路由渲染之前，没有404页面的，就不会先跳到404页面
+    // mmp,搞了两天
     if (rules[item.name]) {
       if (item.children) item.children = getAccesRouterList(item.children, rules)
       return true
@@ -20,6 +23,7 @@ export default {
   },
   mutations: {
     CONCAT_ROUTES (state, routerList) {
+      state.routers = []
       state.routers = routerList.concat(routes)
       state.hasGetRules = true
     }
@@ -39,7 +43,6 @@ export default {
             routerList = getAccesRouterList(routerMap, rules)
           }
           commit('CONCAT_ROUTES', routerList)
-          console.log(state)
           resolve(state.routers)
         } catch (err) {
           reject(err)

@@ -5,7 +5,9 @@
 </template>
 <script>
 export default {
-
+  mounted() {
+    console.log(this.$route.matched)
+  },
 }
 </script>
 <style lang="less">

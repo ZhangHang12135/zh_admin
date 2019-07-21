@@ -10,10 +10,10 @@ export const routerMap = [
   }
 ]
 // 通用路由
+// 不加name
 export const routes = [
   {
     path: '/login',
-    name: 'login',
     meta: {
       title: '登录'
     },
@@ -21,17 +21,14 @@ export const routes = [
   },
   {
     path: '/401',
-    name: 'error_401',
     component: () => import('@/views/error-page/401.vue')
   },
   {
     path: '/500',
-    name: 'error_500',
     component: () => import('@/views/error-page/500.vue')
   },
   {
     path: '*',
-    name: 'error_404',
     component: () => import('@/views/error-page/404.vue')
   }
 ]
