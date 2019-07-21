@@ -1,10 +1,42 @@
 <template>
-  <Submenu>
-
+  <Submenu :name="parent.name">
+    <template slot="title">
+      <Icon :type="parent.icon" :size="20"/>
+      {{ parent.title }}
+    </template>
+    <template v-for="item in parent.children">
+      <re-submenu
+      v-if="item.children"
+      :key="`menu_${item.name}`"
+      :name="item.name"
+      :parent="item">
+      </re-submenu>
+      <menu-item
+      v-else
+      :key="`menu_${item.name}`"
+      :name="item.name"
+      :parent="item">
+      <Icon :type="parent.icon" :size="20"/>
+      {{ item.title }}
+      </menu-item>
+    </template>
   </Submenu>
 </template>
 <script>
 export default {
-  name: 'ReSubmenu'
+  name: 'ReSubmenu',
+  props: {
+    parent: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  mounted () {
+    console.log(this.parent)
+  }
 }
 </script>
+<style lang="less">
+
+</style>
+
