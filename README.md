@@ -31,4 +31,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### Bug
 - [x] 动态权限加载，f5刷新主页，跳到404
   - 重复添加了\*路由，在beforeEach之前，页面就跳转到了404,过滤掉\*路由即可
-- [] 收缩菜单，显示二级菜单，右侧显示不全，被切掉了
+- [X] 收缩菜单，显示二级菜单，右侧显示不全，被切掉了
+  - 在layout页面设置了overflow: hidden,为了滚动，将超出的隐藏了，将dropdown设置transfer,即弹出层到body层就不会被切掉了
