@@ -2,7 +2,7 @@ const path = require('path')
 
 const resolve = dir => path.join(__dirname, dir)
 
-const BASE_URL = process.env.NODE_ENV === 'procution' ? '/' : '/'
+const BASE_URL = process.env.NODE_ENV === 'prodution' ? '/' : '/'
 // 检测是否是生产环境（打包），不是的话就是开发环境，直接在根目录下即可
 module.exports = {
   lintOnSave: false,

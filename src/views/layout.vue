@@ -99,8 +99,6 @@ export default {
     }
   },
   mounted () {
-    console.log('111')
-    console.log(this.userName)
   }
 }
 </script>
@@ -110,7 +108,7 @@ export default {
   .header-wrapper{
     background: #fff;
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .1);
-    padding: 0 20px;
+    padding: 0 23px;
     .trigger-icon{
       cursor: pointer;
       transition: transform .3s ease;
@@ -125,6 +123,7 @@ export default {
   }
   .sider-outer{
     height: 100%;
+    // 这里设置了超出隐藏，那么dropdown那边就要设置tranfer 使弹出层在body
     overflow: hidden;
     background: #fff;
     // border-right: 0.1px solid #dcdee2;

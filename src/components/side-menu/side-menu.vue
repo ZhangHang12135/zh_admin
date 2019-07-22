@@ -1,7 +1,7 @@
 <template>
   <div class="side-menu-wrapper">
     <slot></slot>
-    <Menu v-show="!collapsed" width="auto" theme="light">
+    <Menu v-show="!collapsed" width="auto" theme="light" @on-select="handleSelect">
       <template v-for="item in list">
         <re-submenu
         v-if="item.children"
