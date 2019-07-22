@@ -4,9 +4,21 @@ export const routerMap = [
     path: '/',
     name: 'layout',
     meta: {
-      title: '首页'
+      title: '首页',
+      icon: 'A'
     },
-    component: () => import('@/views/layout.vue')
+    component: () => import('@/views/layout.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'home',
+        meta: {
+          title: '首页',
+          icon: 'A'
+        },
+        component: () => import('@/views/home.vue')
+      }
+    ]
   }
 ]
 // 通用路由

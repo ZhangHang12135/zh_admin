@@ -1,8 +1,12 @@
 <template>
   <Dropdown @on-click="handleClick" transfer placement="right-start">
     <span class="drop-menu-span" :style="titleStyle">
-      <Icon :type="parent.icon" :size="20"/>
-      <span v-if="showTitle">{{ parent.title }}</span>
+      <icon-svg :size="20" :icon="parent.meta.icon"></icon-svg>
+      <span v-if="showTitle">
+        {{ parent.meta.title }}
+        <Icon type="ios-arrow-forward" :size="16" />
+      </span>
+
     </span>
     <DropdownMenu slot="list">
       <template v-for="item in parent.children">
@@ -15,8 +19,8 @@
           v-else
           :key="`drop_${item.name}`"
           :name="item.name">
-          <Icon :type="item.icon" :size="20"/>
-          {{ item.title }}
+          <icon-svg :size="20" :icon="parent.meta.icon"></icon-svg>
+          {{ item.meta.title }}
           </DropdownItem>
       </template>
     </DropdownMenu>

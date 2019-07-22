@@ -14,8 +14,8 @@
         v-else
         :key="`menu_${item.name}`"
         :name="item.name">
-        <Icon :type="item.icon" :size="20"/>
-        {{ item.title }}
+        <icon-svg :size="20" :icon="parent.meta.icon"></icon-svg>
+        {{ item.meta.title }}
         </menu-item>
       </template>
     </Menu>
@@ -31,11 +31,11 @@
         <Tooltip
         v-else
         transfer
-        :content="item.title"
+        :content="item.meta.title"
         placement="right"
         :key="`drop_${item.name}`">
           <span @click="handleClick(item.name)" class="drop-menu-span">
-            <Icon :type="item.icon" :size="20" />
+            <icon-svg :size="20" :icon="parent.meta.icon"></icon-svg>
           </span>
         </Tooltip>
       </template>
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     handleSelect (name) {
-      console.log(name)
+      this.$router.push({ name })
     },
     handleClick (name) {
       console.log(name)

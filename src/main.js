@@ -7,8 +7,10 @@ import 'iview/dist/styles/iview.css'
 import '@/assets/font/iconfont.js'
 import '@/assets/font/iconfont.css'
 import IconSvg from '_c/icon-svg'
-if (process.env.NODE_ENV !== 'production') require('./mock')
-
+if (process.env.NODE_ENV !== 'production') {
+  require('./mock')
+  Vue.config.devtools = true
+}
 Vue.config.productionTip = false
 Vue.component('icon-svg', IconSvg)
 Vue.use(iview)

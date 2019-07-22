@@ -39,47 +39,6 @@ export default {
   data() {
     return {
       collapsed: false,
-      routers: [
-        {
-          title: '1',
-          name: 'menu1',
-          icon: 'ios-alarm'
-        },
-        {
-          title: '2',
-          name: 'menu2',
-          icon: 'ios-alarm'
-        },
-        {
-          title: '3',
-          name: 'menu3',
-          icon: 'ios-alarm',
-          children: [
-            {
-              title: '3-11',
-              name: 'menu31',
-              icon: 'ios-alarm'
-            },
-            {
-              title: '3-22',
-              name: 'menu32',
-              icon: 'ios-alarm',
-              children: [
-                {
-                  title: '3-22-11',
-                  name: 'menu321',
-                  icon: 'ios-alarm'
-                },
-                {
-                  title: '3-22-22',
-                  name: 'menu322',
-                  icon: 'ios-alarm'
-                }
-              ]
-            }
-          ]
-        }
-      ]
     }
   },
   computed: {
@@ -90,7 +49,10 @@ export default {
       ]
     },
     ...mapState({
-      userName: state => state.user.userName
+      userName: state => state.user.userName,
+      routers: state => state.router.routers.filter(item => {
+        return item.name
+      })
     })
   },
   methods: {
