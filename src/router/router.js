@@ -19,6 +19,15 @@ export const routerMap = [
         component: () => import('@/views/home.vue')
       }
     ]
+  },
+  {
+    path: '/table',
+    name: 'table',
+    meta: {
+      title: '表格',
+      icon: 'A'
+    },
+    component: () => import('@/views/table.vue')
   }
 ]
 // 通用路由

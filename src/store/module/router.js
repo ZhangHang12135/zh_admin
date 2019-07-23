@@ -10,7 +10,7 @@ const getAccesRouterList = (routes, rules) => {
     // 这里过滤掉没有name字段的，就把*路由过滤掉了,
     // 这样在路由渲染之前，没有404页面的，就不会先跳到404页面
     // mmp,搞了两天
-    if (rules[item.name]) {
+    if (item.name && rules[item.name]) {
       if (item.children) item.children = getAccesRouterList(item.children, rules)
       return true
     } else return false
@@ -36,12 +36,13 @@ export default {
       return new Promise((resolve, reject) => {
         try {
           let routerList = []
-          if (Object.entries(rules).every(item => item[1])) {
-            // 所有路由都可用
-            routerList = routerMap
-          } else {
-            routerList = getAccesRouterList(routerMap, rules)
-          }
+          // if (Object.entries(rules).every(item => item[1])) {
+          // 所有路由都可用
+          // 这里不能这样写，如果存在不存在路由呢
+          // routerList = routerMap
+          // } else {
+          routerList = getAccesRouterList(routerMap, rules)
+          // }
           commit('CONCAT_ROUTES', routerList)
           resolve(state.routers)
         } catch (err) {

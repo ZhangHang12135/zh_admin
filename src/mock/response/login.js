@@ -17,7 +17,8 @@ export const authorization = () => {
           home: true,
           layout: true,
           table_page: true,
-          icon_page: true
+          icon_page: true,
+          table: true
         }
       },
       mes: '认证成功'

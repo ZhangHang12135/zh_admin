@@ -32,6 +32,7 @@ export default {
     }
   },
   mounted () {
+    console.log(parent)
   }
 }
 </script>
