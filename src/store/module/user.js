@@ -1,5 +1,5 @@
 import { login, authorization, getUserInfo } from '@/api/user'
-import { setToken, getToken } from '@/lib/util'
+import { setToken, getToken, setUser } from '@/lib/util'
 
 export default {
   state: {
@@ -47,6 +47,7 @@ export default {
             reject(new Error('token error'))
           } else {
             commit('SET_TOKEN', res.data.token)
+            commit('SET_RULES', res.data.rules)
             resolve(res.data.rules.page)
           }
         }).catch(error => {
@@ -65,8 +66,11 @@ export default {
         try {
           getUserInfo(state.token).then(res => {
             const data = res.data
-            commit('SET_USER_NAME', data.userName)
-            commit('SET_IMG', data.img)
+            const userName = data.userName
+            const avatarImgPath = data.img
+            commit('SET_USER_NAME', userName)
+            commit('SET_IMG', avatarImgPath)
+            setUser({ userName, avatarImgPath })
             resolve(data)
           }).catch(err => {
             reject(err)

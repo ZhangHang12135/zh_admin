@@ -15,3 +15,13 @@ export const getToken = () => {
 export const setTitle = (title = 'Senven') => {
   window.document.title = title
 }
+
+export const setUser = ({ userName, avatarImgPath }) => {
+  console.log(JSON.stringify({ userName, avatarImgPath }))
+  Cookies.set('user', JSON.stringify({ userName, avatarImgPath }), { expires: cookieExpires || 1 })
+}
+export const getUser = () => {
+  const user = Cookies.get('user')
+  if (user) return JSON.parse(user)
+  else return false
+}

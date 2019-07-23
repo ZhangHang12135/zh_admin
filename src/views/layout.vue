@@ -11,6 +11,7 @@
         <Header class="header-wrapper">
           <Icon :class="triggerClasses"  type="md-menu" :size="32" @click.native="handleCollapsed" />
           Welcome --- {{ userName }}
+          <icon-svg :icon="avatarImgPath" :size="32"></icon-svg>
         </Header>
         <Content class="content-con">
           <!-- <div>
@@ -31,6 +32,7 @@
 <script>
 import SideMenu from '_c/side-menu'
 import { mapState } from 'vuex'
+import { getUser } from '@/lib/util'
 export default {
   name: 'layout',
   components: {
@@ -49,11 +51,16 @@ export default {
       ]
     },
     ...mapState({
-      userName: state => state.user.userName,
       routers: state => state.router.routers.filter(item => {
         return item.name
       })
-    })
+    }),
+    userName () {
+      return getUser().userName
+    },
+    avatarImgPath () {
+      return getUser().avatarImgPath
+    }
   },
   methods: {
     handleCollapsed () {
