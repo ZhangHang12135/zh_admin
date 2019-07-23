@@ -35,6 +35,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   - 在layout页面设置了overflow: hidden,为了滚动，将超出的隐藏了，将dropdown设置transfer,即弹出层到body层就不会被切掉了
 - [ ] 收缩菜单，鼠标移到三级菜单，二级菜单消失 -- 2019-7-22
 - [ ] 收起侧边菜单，标题闪烁 -- 2019-7-22 14:54
+  - 我想了一下，是因为菜单栏是慢慢展开的，展开到一般的时候，标题就显现了。
 
 ### 系统流程
 登录页 => 登录 => 两次请求（login,getUserInfo），并将个人信息，token存在state,Cookie => 路由准备跳转(一般是首页)

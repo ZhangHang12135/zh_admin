@@ -58,6 +58,7 @@ export default {
     logout ({ commit }) {
       return new Promise((resolve, reject) => {
         commit('SET_TOKEN', '')
+        setUser({})
         resolve()
       })
     },

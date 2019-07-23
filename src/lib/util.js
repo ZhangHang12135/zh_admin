@@ -12,12 +12,11 @@ export const getToken = () => {
   else return false
 }
 
-export const setTitle = (title = 'Senven') => {
+export const setTitle = (title = 'admin') => {
   window.document.title = title
 }
 
 export const setUser = ({ userName, avatarImgPath }) => {
-  console.log(JSON.stringify({ userName, avatarImgPath }))
   Cookies.set('user', JSON.stringify({ userName, avatarImgPath }), { expires: cookieExpires || 1 })
 }
 export const getUser = () => {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { routes } from './router'
-import { setTitle, getToken } from '@/lib/util'
+import { setTitle, getToken, getUser } from '@/lib/util'
 import store from '@/store'
 Vue.use(Router)
 
@@ -15,8 +15,9 @@ router.beforeEach((to, from, next) => {
   to.meta && setTitle(to.meta.title)
   // 权限验证
   const token = getToken()
+  const user = getUser()
   // let thisRules = {} // 当前用户权限
-  if (token) {
+  if (token && user) {
     // 判断是否登录，即是否获取当前用户路由权限列表
     if (!store.state.router.hasGetRules) {
       store.dispatch('authorization').then(rules => {
@@ -26,7 +27,7 @@ router.beforeEach((to, from, next) => {
           // 这样保证路由挂载之后跳转
           next({ ...to, replace: true })
         }).catch(() => {
-          next({ name: 'login' })
+          next({ path: '/login' })
         })
       })
     } else {
@@ -36,8 +37,8 @@ router.beforeEach((to, from, next) => {
       next()
     }
   } else {
-    if (to.name === 'login') next()
-    else next({ name: 'login' })
+    if (to.path === '/login') next()
+    else next({ path: '/login' })
   }
 })
 

@@ -31,7 +31,6 @@ export default {
       'getUserInfo'
     ]),
     handleSubmit ({userName, password}) {
-      console.log('login-state---',store.state.router)
       this.login({userName, password}).then(res => {
         // 这里的actions没有传值，所以res为空
         this.getUserInfo().then(res => {

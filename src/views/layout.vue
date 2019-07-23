@@ -12,6 +12,7 @@
           <Icon :class="triggerClasses"  type="md-menu" :size="32" @click.native="handleCollapsed" />
           Welcome --- {{ userName }}
           <icon-svg :icon="avatarImgPath" :size="32"></icon-svg>
+          <Button @click="handlelogout">退出</Button>
         </Header>
         <Content class="content-con">
           <!-- <div>
@@ -31,7 +32,7 @@
 </template>
 <script>
 import SideMenu from '_c/side-menu'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { getUser } from '@/lib/util'
 export default {
   name: 'layout',
@@ -63,8 +64,23 @@ export default {
     }
   },
   methods: {
+    ...mapActions([
+      'logout'
+    ]),
     handleCollapsed () {
       this.collapsed = !this.collapsed
+    },
+    handlelogout () {
+      this.$Modal.confirm({
+        title: '提示',
+        content: '确定登出？',
+        onOk: () => {
+          this.logout().then(res => {
+          this.$router.push({ path: '/login'})
+        })
+        }
+      })
+
     }
   },
   mounted () {
