@@ -103,7 +103,7 @@ export default {
             <span>{item.meta.title}</span>
             {
               item.name !== 'home'
-              ? <icon nativeOn-click={this.handleTabRemove.bind(this,getTabNameByRoute(item))} type="md-close-circle" style="line-height: 10px"/>
+              ? <icon nativeOn-click={this.handleTabRemove.bind(this,getTabNameByRoute(item))} type="md-close-circle" class="tab-close"/>
               : ''
             }
           </div>
@@ -165,6 +165,13 @@ export default {
     }
     .ivew-box{
       padding: 0;
+    }
+    .tab-close{
+      line-height: 14px;
+      padding-left: 10px;
+      &:hover{
+        color:firebrick;
+      }
     }
   }
   .page-card{
