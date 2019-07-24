@@ -1,7 +1,14 @@
 <template>
   <div class="side-menu-wrapper">
     <slot></slot>
-    <Menu v-show="!collapsed" width="auto" theme="light" @on-select="handleSelect">
+    <Menu
+      ref="menu"
+      v-show="!collapsed"
+      width="auto"
+      theme="light"
+      :active-name="$route.name"
+      :open-names="openNames"
+      @on-select="handleSelect">
       <template v-for="item in list">
         <re-submenu
         v-if=" item.children && item.children.length > 1"
@@ -61,6 +68,8 @@
 <script>
 import ReSubmenu from './re-submenu.vue'
 import ReDropdown from './re-dropdown.vue'
+import { mapState } from 'vuex'
+import { getOpenArrByName } from '@/lib/util'
 export default {
   name: 'SideMenu',
   components: {
@@ -85,6 +94,22 @@ export default {
     handleClick (name) {
       if (name === 'blog') window.open('https://zhanghang12135.github.io/', '_blank')
       else this.$router.push({ name })
+    }
+  },
+  computed: {
+    ...mapState({
+      routers: state => state.router.routers
+    }),
+    openNames () {
+      return getOpenArrByName(this.$route.name, this.routers)
+    }
+  },
+  watch: {
+    openNames () {
+      this.$nextTick(() => {
+        // updateOpened是iview中Menu的事件，配合open-name使用
+        this.$refs.menu.updateOpened()
+      })
     }
   },
   mounted () {

@@ -115,3 +115,26 @@ export const localSave = (name, value) => {
   localStorage.setItem(name, value)
 }
 export const localRead = name => localStorage.getItem(name)
+/**
+ * @description 根据name值获得展开菜单数组
+ * @param {String} name
+ * @param {Route Array} routerList
+ */
+export const getOpenArrByName = (name, routerList) => {
+  let arr = []
+  routerList.some(item => {
+    if (item.name === name) {
+      arr.push(item.name)
+      return true
+    }
+    if (item.children && item.children.length) {
+      let childArr = getOpenArrByName(name, item.children)
+      // 若存在，父级也得展开
+      if (childArr.length) {
+        arr = arr.concat(item.name, childArr)
+        return true
+      }
+    }
+  })
+  return arr
+}
