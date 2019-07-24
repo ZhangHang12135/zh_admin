@@ -79,10 +79,12 @@ export default {
   },
   methods: {
     handleSelect (name) {
-      this.$router.push({ name })
+      if (name === 'blog') window.open('https://zhanghang12135.github.io/', '_blank')
+      else this.$router.push({ name })
     },
     handleClick (name) {
-      console.log(name)
+      if (name === 'blog') window.open('https://zhanghang12135.github.io/', '_blank')
+      else this.$router.push({ name })
     }
   },
   mounted () {

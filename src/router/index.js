@@ -20,7 +20,7 @@ router.beforeEach((to, from, next) => {
   if (token && user) {
     // 判断是否登录，即是否获取当前用户路由权限列表
     if (!store.state.router.hasGetRules) {
-      store.dispatch('authorization').then(rules => {
+      store.dispatch('authorization', user.userName).then(rules => {
         store.dispatch('concatRoutes', rules).then(routers => {
           // 路由挂载
           router.addRoutes(routers)

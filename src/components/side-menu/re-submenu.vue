@@ -16,7 +16,7 @@
       :key="`menu_${item.name}`"
       :name="item.name"
       :parent="item">
-      <icon-svg :size="20" :icon="parent.meta.icon"></icon-svg>
+      <icon-svg :size="20" :icon="item.meta.icon"></icon-svg>
       {{ item.meta.title }}
       </menu-item>
     </template>
@@ -32,7 +32,6 @@ export default {
     }
   },
   mounted () {
-    console.log(parent)
   }
 }
 </script>

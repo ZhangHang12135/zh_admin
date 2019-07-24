@@ -19,7 +19,7 @@
           v-else
           :key="`drop_${item.name}`"
           :name="item.name">
-          <icon-svg :size="20" :icon="parent.meta.icon"></icon-svg>
+          <icon-svg :size="20" :icon="item.meta.icon"></icon-svg>
           {{ item.meta.title }}
           </DropdownItem>
       </template>

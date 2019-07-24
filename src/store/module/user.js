@@ -41,7 +41,7 @@ export default {
     },
     authorization ({ commit }, token) {
       return new Promise((resolve, reject) => {
-        authorization().then(res => {
+        authorization(token).then(res => {
           // 401证明权限不足，或者token不对
           if (parseInt(res.code) === 401) {
             reject(new Error('token error'))

@@ -104,6 +104,7 @@ export default {
     }
   }
   .logo-con{
+    height: 64px;
     text-align: center;
   }
   .sider-outer{
