@@ -15,11 +15,11 @@
           <Button @click="handlelogout">退出</Button>
         </Header>
         <Content class="content-con">
-          <!-- <div>
+          <div>
             <Tabs type="card" :value="getTabNameByRoute($route)" @on-click="handleClickTab">
               <TabPane :label="labelRender(item)" :name="getTabNameByRoute(item)" v-for="(item, index) in tabList" :key="`tabNav${index}`" ></TabPane>
             </Tabs>
-          </div> -->
+          </div>
           <div class="view-box">
           <Card shadow class="page-card">
             <router-view />
@@ -32,8 +32,8 @@
 </template>
 <script>
 import SideMenu from '_c/side-menu'
-import { mapState, mapActions } from 'vuex'
-import { getUser } from '@/lib/util'
+import { mapState, mapActions, mapMutations } from 'vuex'
+import { getUser, getTabNameByRoute, getRouteById } from '@/lib/util'
 export default {
   name: 'layout',
   components: {
@@ -42,6 +42,12 @@ export default {
   data() {
     return {
       collapsed: false,
+      getTabNameByRoute
+    }
+  },
+  watch: {
+    '$route' (newRoute) {
+      this.UPDATE_ROUTER(newRoute)
     }
   },
   computed: {
@@ -52,6 +58,7 @@ export default {
       ]
     },
     ...mapState({
+      tabList: state => state.tabNav.tabList,
       routers: state => state.router.routers.filter(item => {
         return item.name
       })
@@ -65,7 +72,11 @@ export default {
   },
   methods: {
     ...mapActions([
-      'logout'
+      'logout',
+      'handleRemove'
+    ]),
+    ...mapMutations([
+      'UPDATE_ROUTER'
     ]),
     handleCollapsed () {
       this.collapsed = !this.collapsed
@@ -80,7 +91,34 @@ export default {
         })
         }
       })
-
+    },
+    handleClickTab (id) {
+      let route = getRouteById(id)
+      this.$router.push(route)
+    },
+    labelRender (item) {
+      return h => {
+        return (
+          <div>
+            <span>{item.meta.title}</span>
+            {
+              item.name !== 'home'
+              ? <icon nativeOn-click={this.handleTabRemove.bind(this,getTabNameByRoute(item))} type="md-close-circle" style="line-height: 10px"/>
+              : ''
+            }
+          </div>
+        )
+      }
+    },
+    handleTabRemove (id, event) {
+      // 阻止点击事件冒泡到tab
+      event.stopPropagation()
+      this.handleRemove({
+        id,
+        $route: this.$route
+      }).then(nextRoute => {
+        this.$router.push(nextRoute)
+      })
     }
   },
   mounted () {
@@ -122,6 +160,12 @@ export default {
   }
   .content-con{
     padding: 10px;
+    .ivu-tabs-bar{
+      margin-bottom: 0;
+    }
+    .ivew-box{
+      padding: 0;
+    }
   }
   .page-card{
     min-height: ~"calc(100vh - 84px)"

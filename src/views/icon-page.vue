@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    图标页
   </div>
 </template>
 <script>
