@@ -42,3 +42,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 登录页 => 登录 => 两次请求（login,getUserInfo），并将个人信息，token存在state,Cookie => 路由准备跳转(一般是首页)
 => 全局守卫拦截并发送验证请求（authorization）=> 后台验证token,并返回该用户路由权限（rules）=> 合并路由并动态挂载上去
 => 跳转到首页 => 菜单栏根据当前用户路由生成
+
+### 组件使用提示
+- ~~Table 的slot 和 slot-scope 需要更改为v-slot~~
+  - 是组件更新的时候并没有触发热更新，重新刷新下单页就好了
+- edit-table-mul 组件未使用，可以直接删除，一个失败的产物
