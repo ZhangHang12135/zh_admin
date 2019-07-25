@@ -6,3 +6,9 @@ export const getTableData = () => {
     method: 'post'
   })
 }
+export const getBigData = () => {
+  return axios.request({
+    url: '/getBigData',
+    method: 'post'
+  })
+}

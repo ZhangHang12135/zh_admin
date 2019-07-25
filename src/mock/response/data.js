@@ -13,3 +13,20 @@ export const getTableData = () => {
   })
   return arr
 }
+export const getBigData = () => {
+  const template = {
+    name: '@cname',
+    'age|18-45': 0,
+    birthday: '@date',
+    personalId: '@id',
+    adress: '@city(true)',
+    zip: '@zip'
+  }
+  let arr = []
+  doCustomTimes(10000, () => {
+    let item = Mock.mock(template)
+    item = Object.values(item)
+    arr.push(item)
+  })
+  return arr
+}
