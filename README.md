@@ -68,6 +68,7 @@ simplify|是否简化显示|Boolean|false|x
 unit|用于简化的自定义单位|Array|[[3, 'K+'], [6, 'M+'], [9, 'B+']]|x
 countClass|数字样式|String|''|x
 unitClass|单位样式|String|''|x
+fontColor|字体颜色|String|''|x
 
 
 ----
