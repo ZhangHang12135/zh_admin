@@ -2,7 +2,7 @@
   <div class="count-to-wrapper">
     <slot name="left"></slot>
     <p class="content-outer">
-      <span ref="number" :class="['count-to-unit-text', countClass]" :id="counterId">{{ init }}</span>
+      <span ref="number" :class="['count-to-unit-text', countClass]" :id="counterId" :style="{color: fontColor}">{{ init }}</span>
       <i :class="['count-to-unit-text', unitClass]">{{ unitText }}</i>
     </p>
     <slot name="right"></slot>
@@ -102,6 +102,10 @@ export default {
       default () {
         return [[3, 'K+'], [6, 'M+'], [9, 'B+']]
       }
+    },
+    fontColor:{
+      type: String,
+      default: '#fff'
     },
     countClass: {
       type: String,

@@ -10,9 +10,11 @@
       <Layout>
         <Header class="header-wrapper">
           <Icon :class="triggerClasses"  type="md-menu" :size="32" @click.native="handleCollapsed" />
-          Welcome --- {{ userName }}
-          <icon-svg :icon="avatarImgPath" :size="32"></icon-svg>
-          <Button @click="handlelogout">退出</Button>
+          <div style="float:right">
+            Welcome --- {{ userName }}
+            <icon-svg :icon="avatarImgPath" :size="32"></icon-svg>
+            <Button @click="handlelogout">退出</Button>
+          </div>
         </Header>
         <Content class="content-con">
           <div>
@@ -175,7 +177,7 @@ export default {
     }
   }
   .page-card{
-    min-height: ~"calc(100vh - 84px)"
+    min-height: ~"calc(100vh - 116px)"
   }
 }
 </style>

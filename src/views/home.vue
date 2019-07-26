@@ -1,16 +1,23 @@
 <template>
   <div class="home-wrapper">
     <Row :gutter="20">
-      <i-col :xs="12" :md="8" :lg="4"
+      <i-col :xs="12" :md="8" :lg="8" :xl="4"
         v-for="(info, i) in infoCardData" :key="`info-${i}`"
         style="height: 120px;padding-bottom: 10px;">
           <info-card :color="info.color" :icon="info.icon" :icon-size="50">
-            <count-to :end-val="info.count"  usegroup count-class="count-class"></count-to>
+            <count-to :end-val="info.count"  usegroup count-class="count-class" :font-color="info.color"></count-to>
             <p>{{info.title}}</p>
           </info-card>
         </i-col>
     </Row>
-    <Row>
+    <Row :gutter="20">
+      <i-col :lg="12">
+        <Card class="card-img">
+           <img src="../assets/img/marvel.jpg">
+        </Card>
+      </i-col>
+      <i-col :lg="12">
+      </i-col>
     </Row>
   </div>
 </template>
@@ -26,12 +33,12 @@ export default {
   data() {
     return {
       infoCardData: [
-        { title: '新增用户', icon: 'meiguoduichang3', count: 803, color: '#2d8cf0' },
-        { title: '累计点击', icon: 'lvjuren3', count: 232, color: '#19be6b' },
-        { title: '新增问答', icon: 'leishen2', count: 142, color: '#ff9900' },
-        { title: '分享统计', icon: 'gangtiexia5', count: 657, color: '#ed3f14' },
-        { title: '新增互动', icon: 'fuchouzhelianmeng-heiguafu', count: 12, color: '#E46CBB' },
-        { title: '新增页面', icon: 'fuchouzhelianmeng-yingyan', count: 14, color: '#9A66E4' }
+        { title: '所有英雄', icon: 'meiguoduichang3', count: 1526, color: '#2d8cf0' },
+        { title: '种族划分', icon: 'lvjuren3', count: 162, color: '#19be6b' },
+        { title: '地球英雄', icon: 'leishen2', count: 272, color: '#ff9900' },
+        { title: '动漫剧集', icon: 'gangtiexia5', count: 657, color: '#ed3f14' },
+        { title: '上映电影', icon: 'fuchouzhelianmeng-heiguafu', count: 22, color: '#E46CBB' },
+        { title: '新增英雄', icon: 'fuchouzhelianmeng-yingyan', count: 14, color: '#9A66E4' }
       ],
     }
   },
@@ -40,8 +47,17 @@ export default {
 <style lang="less">
 .home-wrapper{
   .count-class{
-  font-size: 45px;
-  color: red;
+  font-size: 3vw;
+  }
+  .card-img{
+    .ivu-card-body{
+      height: 100%;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%
+      }
+    }
   }
 }
 
