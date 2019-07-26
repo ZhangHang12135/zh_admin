@@ -2360,6 +2360,11 @@ cosmiconfig@^5.0.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
+countup@^1.8.2:
+  version "1.8.2"
+  resolved "https://registry.npm.taobao.org/countup/download/countup-1.8.2.tgz#021ccc6a6f964540c6b27ed64681af27fb55f010"
+  integrity sha1-AhzMam+WRUDGsn7WRoGvJ/tV8BA=
+
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "https://registry.npm.taobao.org/create-ecdh/download/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"

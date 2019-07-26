@@ -46,4 +46,24 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### 组件使用提示
 - ~~Table 的slot 和 slot-scope 需要更改为v-slot~~
   - 是组件更新的时候并没有触发热更新，重新刷新下单页就好了
-- edit-table-mul 组件未使用，可以直接删除，一个失败的产物
+- ~~edit-table-mul 组件未使用，可以直接删除，一个失败的产物~~
+
+- count-to 组件使用说明
+
+**props:**
+属性|说明|类型|默认值|必填项
+:-:|:-:|:-:|:-:|:-:
+init|视图初始值|Number|0|x
+startVal|变化起始值|Number|0|x
+endVal|最终值|Number| -- | √
+decimals|保留几位小数|Number|0|x
+decimal|整数和小数之间的符号|String|.|x
+duration|动画持续时间，单位秒|Number|2|x
+delay|动画延迟开始的时间，单位是秒|Number|0|x
+uneasing|是否禁用easing动画效果|Boolean|false|x
+usegroup|是否使用分组，分组后每三位会用一个符号分隔|Boolean|false|x
+separator|用于分组(usegroup)的符号|String|,|x
+simplify|是否简化显示|Boolean|false|x
+unit|用于简化的自定义单位|Array|[[3, 'K+'], [6, 'M+'], [9, 'B+']]|x
+countClass|数字样式|String|''|x
+unitClass|单位样式|String|''|x

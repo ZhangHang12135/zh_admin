@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     getBigData().then(data => {
-      // 因为这里并不是真的调用接口，而是mock模拟的，所以很大部分事件是用来生成数据了
+      // 因为这里并不是真的调用接口，而是mock模拟的，所以很大部分时间是用来生成数据了
       this.tableDataHandled = data
     })
   },

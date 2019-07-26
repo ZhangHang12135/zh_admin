@@ -86,10 +86,12 @@ export default {
       this.value[index].age = this.editAge
       this.value[index].email = this.editEmail
       this.editIndex = -1
+      this.$Message.success('保存成功')
     },
     handleDelete (row, index) {
       this.tableData.splice(index, 1)
       // 调接口
+      this.$MEssage.success('删除成功')
     }
   },
   mounted () {
