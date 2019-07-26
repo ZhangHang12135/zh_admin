@@ -47,8 +47,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - ~~Table 的slot 和 slot-scope 需要更改为v-slot~~
   - 是组件更新的时候并没有触发热更新，重新刷新下单页就好了
 - ~~edit-table-mul 组件未使用，可以直接删除，一个失败的产物~~
-
-- count-to 组件使用说明
+----
+#### count-to 组件使用说明
 
 **props:**
 属性|说明|类型|默认值|必填项
@@ -67,3 +67,20 @@ simplify|是否简化显示|Boolean|false|x
 unit|用于简化的自定义单位|Array|[[3, 'K+'], [6, 'M+'], [9, 'B+']]|x
 countClass|数字样式|String|''|x
 unitClass|单位样式|String|''|x
+
+
+----
+
+#### info-card 组件使用说明
+
+**需要给他的父元素一个明确的高度**
+
+**props:**
+属性|说明|类型|默认值
+:-:|:-:|:-:|:-:|
+left|左区域所占百分比|Number|36
+color|左区域背景颜色|String|''
+icon|图标名字|String|''
+iconSize|图标大小|Number|20
+shadow|卡片阴影|Boolean|false
+
