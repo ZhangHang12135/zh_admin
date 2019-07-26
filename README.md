@@ -51,6 +51,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 #### count-to 组件使用说明
 
 **props:**
+
 属性|说明|类型|默认值|必填项
 :-:|:-:|:-:|:-:|:-:
 init|视图初始值|Number|0|x
@@ -76,6 +77,7 @@ unitClass|单位样式|String|''|x
 **需要给他的父元素一个明确的高度**
 
 **props:**
+
 属性|说明|类型|默认值
 :-:|:-:|:-:|:-:|
 left|左区域所占百分比|Number|36
