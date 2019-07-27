@@ -1,6 +1,6 @@
 <template>
-  <Row type="flex" :gutter="20">
-    <i-col v-for="(item, index ) in iconlist" :key="`icon_${index}`">
+  <Row >
+    <i-col v-for="(item, index ) in iconlist" :key="`icon_${index}`" class="item-icon">
       <card-icon :title="item.title" :icon="item.icon" style="margin: 10px"></card-icon>
     </i-col>
   </Row>
@@ -66,3 +66,10 @@ export default {
   },
 }
 </script>
+<style lang="less">
+.item-icon{
+  float: left;
+  margin: 0 0 0 5px;
+}
+</style>
+

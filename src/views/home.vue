@@ -1,7 +1,7 @@
 <template>
   <div class="home-wrapper">
     <Row :gutter="20">
-      <i-col :xs="12" :md="8" :lg="8" :xl="4"
+      <i-col :xs="24" :md="8" :lg="8" :xl="4"
         v-for="(info, i) in infoCardData" :key="`info-${i}`"
         style="height: 120px;padding-bottom: 10px;">
           <info-card :color="info.color" :icon="info.icon" :icon-size="50">
