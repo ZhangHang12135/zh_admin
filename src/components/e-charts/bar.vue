@@ -21,8 +21,7 @@ export default {
   },
   methods: {
     resize () {
-      if (this.dom) this.dom.resize()
-      else console.log('undefind dom')
+      this.dom.resize()
     }
   },
   mounted () {
