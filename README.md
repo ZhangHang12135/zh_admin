@@ -24,11 +24,67 @@ yarn run test
 ```
 yarn run lint
 ```
+### 项目概述
+- vue-cli 构建
+- vue ~2.6.10, vuex ~3.0.1, vue-router ~3.0.3
+- iview UI框架
+- less 预处理器
+- mockjs模拟数据
+- echarts 图表，第三方虚拟表格渲染10w+数据
+### 项目图例
+1. login-page
+![登录页](./readme-img/login.png)
+2. home-page
+![首页](./readme-img/home.png)
+3. edit-table-page
+![可编辑表格页](./readme-img/edit-table.png)
+4. edit-table-page
+![大数据表格页](./readme-img/big-table.png)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 项目目录
+```
+├─.browserslistrc
+├─.editorconfig
+├─.eslintrc.js
+├─.gitignore
+├─babel.config.js
+├─package.json
+├─postcss.config.js
+├─README.md
+├─vue.config.js
+├─yarn.lock
+├─src --- 项目文件
+|  ├─App.vue -- 主组件
+|  ├─main.js -- 入口文件
+|  ├─views -- 单页文件夹
+|  ├─store -- 状态文件夹
+|  ├─router
+|  |   ├─index.js -- 路由实例
+|  |   └router.js -- 路由列表
+|  ├─mock -- mock 模拟数据
+|  ├─lib -- 工具方法
+|  ├─directive -- 命令指令
+|  ├─config -- 配置文件（基路径等等）
+|  ├─components -- 通用组件
+|  ├─assets -- 静态资源
+|  |   ├─logo.png
+|  |   ├─img -- 图片
+|  |   ├─font -- 字体，图标
+|  ├─api -- 接口文件夹
+├─readme-img -- redeme 说明图示
+├─public -- 项目静态资源文件
 
-### Bug
+```
+### 功能
+ - [x] 动态路由
+ - [x] 权限控制
+ - [x] 路由菜单
+ - [x] 大数据表格
+ - [x] 通用icon-svg
+ - [x] echats饼状图和柱形图组件
+ - [ ] user组件
+ - [ ] 路由面包屑
+### 缺陷
 - [x] 动态权限加载，f5刷新主页，跳到404
   - 重复添加了\*路由，在beforeEach之前，页面就跳转到了404,过滤掉\*路由即可
 - [X] 收缩菜单，显示二级菜单，右侧显示不全，被切掉了
