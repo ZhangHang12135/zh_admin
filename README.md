@@ -37,7 +37,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - [ ] 收起侧边菜单，标题闪烁 -- 2019-7-22 14:54
   - 我想了一下，是因为菜单栏是慢慢展开的，展开到一般的时候，标题就显现了。
 - [ ] 表格分页块，在数据未显示的时候就出来了，比较突兀
-
+- [x] 在地址栏直接输入路由，无法触发全局守卫
+  - 开启路由history模式即可
 ### 系统流程
 登录页 => 登录 => 两次请求（login,getUserInfo），并将个人信息，token存在state,Cookie => 路由准备跳转(一般是首页)
 => 全局守卫拦截并发送验证请求（authorization）=> 后台验证token,并返回该用户路由权限（rules）=> 合并路由并动态挂载上去

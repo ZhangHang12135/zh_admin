@@ -6,6 +6,7 @@ import store from '@/store'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes
 })
 
@@ -31,9 +32,10 @@ router.beforeEach((to, from, next) => {
         })
       })
     } else {
-      // 这里权限不够要跳到401页面
-      // 权限页面还没有区分，先这样写
-      if (to.path === '/login') next({ path: '/' })
+      if (to.path === '/login') {
+        next({ name: 'home' })
+      }
+      if (to.name === 'layout') next({ name: 'home' })
       next()
     }
   } else {
