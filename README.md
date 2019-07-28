@@ -79,6 +79,7 @@ yarn run lint
  - [x] 动态路由
  - [x] 权限控制
  - [x] 路由菜单
+ - [x] 登录登出以及tonken验证
  - [x] 大数据表格
  - [x] 通用icon-svg
  - [x] echats饼状图和柱形图组件
