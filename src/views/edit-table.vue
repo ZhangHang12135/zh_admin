@@ -82,9 +82,9 @@ export default {
     },
     handleSave (index) {
       // 这里应该调用api接口更新后台数据
-      this.value[index].name = this.editName
-      this.value[index].age = this.editAge
-      this.value[index].email = this.editEmail
+      this.tableData[index].name = this.editName
+      this.tableData[index].age = this.editAge
+      this.tableData[index].email = this.editEmail
       this.editIndex = -1
       this.$Message.success('保存成功')
     },
