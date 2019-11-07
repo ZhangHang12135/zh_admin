@@ -83,10 +83,12 @@ export default {
     handleSave (index) {
       console.log(index);
       // 这里应该调用api接口更新后台数据
-      console.log(this.tableData);
+      // console.log(this.tableData);
+      // let obj = {name: this.editName, age: this.editAge, email: this.editEmail}
       this.tableData[index].name = this.editName
       this.tableData[index].age = this.editAge
       this.tableData[index].email = this.editEmail
+      this.tableData[index] = obj
       this.editIndex = -1
       this.$Message.success('保存成功')
     },
