@@ -15,6 +15,7 @@ module.exports = {
   // 打包时，不生成.map文件,加快打包速度，减少生成体积
   productionSourceMap: false,
   devServer: {
+    disableHostCheck: true
     // proxy: 'http://localhost:3000'
     // 告诉开发服务器，将任何未知请求，就是没有匹配到任何静态文件的请求都代理到这个URL,来满足跨域需求
   }
