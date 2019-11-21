@@ -11,6 +11,12 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src'))// 表示用@代表到src这一级的目录 ex: @/api = ..src/api
       .set('_c', resolve('src/components'))
+    config.module
+      .rule('image')
+      .test(/\.(jpg)$/)
+      .use('image-webpack-loader')
+      .loader('image-webpack-loader')
+      .end()
   },
   // 打包时，不生成.map文件,加快打包速度，减少生成体积
   productionSourceMap: false,

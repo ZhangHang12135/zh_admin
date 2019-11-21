@@ -12,6 +12,7 @@
     "core-js": "^2.6.5",
     "countup": "^1.8.2",
     "echarts": "^4.2.1",
+    "image-webpack-loader": "^6.0.0",
     "iview": "^3.4.2",
     "js-cookie": "^2.2.0",
     "md5": "^2.2.1",
